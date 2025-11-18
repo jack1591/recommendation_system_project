@@ -10,10 +10,10 @@ from sqlalchemy import create_engine, desc
 from loguru import logger
 
 from database import SessionLocal
-from schema import PostGet, UserGet, FeedGet
-from table_feed import Feed
-from table_post import Post
-from table_user import User
+from entities.schema import PostGet, UserGet, FeedGet
+from entities.table_feed import Feed
+from entities.table_post import Post
+from entities.table_user import User
 
 # создаем генератор подключения к БД
 engine = create_engine(
@@ -84,7 +84,7 @@ def batch_load_sql(query: str) -> pd.DataFrame:
 
 # загрузка модели из текущей директории (для проверки локально)
 def load_model_2():
-    model_path = "catboost_model"
+    model_path = "model_creating/catboost_model"
     from_file = CatBoostClassifier()
     model = from_file.load_model(model_path, format='cbm')
     return model

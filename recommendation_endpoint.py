@@ -86,7 +86,7 @@ def batch_load_sql(query: str) -> pd.DataFrame:
 
 # я использую загрузку модели локально
 def load_model_2():
-    model_path = "catboost_model"
+    model_path = "model_creating/catboost_model"
     from_file = CatBoostClassifier()
     model = from_file.load_model(model_path, format='cbm')
     return model
